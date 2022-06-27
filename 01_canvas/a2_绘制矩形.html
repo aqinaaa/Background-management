@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    // 获取dom节点
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d');
+    // 绘制矩形的第一种方式：x,y,w,h
+    ctx.strokeRect(100, 200, 100, 200)
+        // 绘制矩形的第二种方式
+    ctx.fillStyle = 'cyan';
+    ctx.fill()
+        // 绘制颜色填充颜色要放在绘画图形之前
+    ctx.fillRect(300, 200, 100, 200);
+</script>
+
+</html>

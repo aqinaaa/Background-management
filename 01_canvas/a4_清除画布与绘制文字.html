@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 画布的宽高通过属性设置，千万别通过样式去设置 -->
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    // 获取dom节点
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d');
+    // 绘制矩形的第一种方式：x,y,w,h
+    // strokeRect方法本身带有strock()属性，所以使用此方法时，设置的颜色最好放在前面
+    ctx.strokeRect(100, 200, 100, 200)
+        // 绘制矩形的第二种方式
+    ctx.fillStyle = 'cyan';
+    ctx.fill()
+        // 绘制颜色填充颜色要放在绘画图形之前
+    ctx.fillRect(300, 200, 100, 200);
+    // 清除画布:清除整个画布或者部分画布
+    ctx.clearRect(300, 200, 50, 100);
+    // 绘制文字
+    // 设置文字大小
+    ctx.font = "20px 微软雅黑";
+    ctx.fillStyle = 'red';
+    ctx.fillText('数据可视化', 50, 20)
+</script>
+
+</html>

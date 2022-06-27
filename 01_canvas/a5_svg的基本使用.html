@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 就是一个双闭合标签：默认宽度与高度300*150，绘制图形务必在内部 
+  可以在样式中设置宽度和高度
+ 特点：可以放大不失真，但是缺点是兼容性，ie8及以下的不浏览器不兼容-->
+    <svg class="box">
+      <!-- 绘制一个直线 -->
+    <line x1="100" y1="100" x2="200" y2="200" stroke="red"></line>
+    <!-- 绘制折现:
+    fill-opacity:默认是黑色填充，设置为0则不显示颜色， stroke="cyan"设置线条颜色
+  建议坐标点之间加逗号隔开，方便阅读-->
+    <polyline points="300 300, 50 100,120 400,20,20" fill-opacity="0" stroke="cyan"></polyline>
+    <!-- 绘制矩形：
+    fill-opacity设置颜色的透明度
+  stroke:线的颜色 -->
+    <rect x="400" y="400" width="150" height="50" fill="pink" fill-opacity="0" stroke="red"></rect>
+    <!-- 圆：
+    cx和cy是圆心点坐标
+    r是半径
+    stroke是绘制的线条颜色
+     -->
+    <circle cx="100" cy="50" r="40" stroke="cyan" stroke-width="2" fill="red" />
+    <!-- 绘制一个椭圆 cx，cy原点坐标轴    rx、ry=坐标半径-->
+    <ellipse cx="500" cy="500" rx='100' ry="50" style="fill:black;"></ellipse>
+    <!-- 绘制多边形 -->
+    <polygon points="600 100,400 500,750 100" fill-opacity="0" stroke="green"></polygon>
+    <!-- 绘制多边形 -->
+    <path></path>
+    </svg>
+</body>
+
+</html>

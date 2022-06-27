@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas画布：是html5新增的特性
+  特点：1、有默认的宽度和高度：300*150
+       2 、浏览器识别为一张图片
+       3 、给canvas添加内容|添加子节点都没有任何意义
+       4、向操作cavas画布：画布当中绘制图形，都必须通过js操作
+       5、cavas的宽度和告诉务必通过canvas标签设置，不能通过样式来设置宽度和高度-->
+    <canvas height="300">我爱你亲爱的</canvas>
+</body>
+<script>
+    // cavas标签的任何操作都无比通过js完成
+    // 通过js当中的笔去完成
+    let cavas = document.querySelector('canvas')
+        // 获取画布的笔【上下文】
+    let ctx = cavas.getContext('2d');
+    console.log(ctx);
+    // 绘制线段的起点的设置
+    ctx.moveTo(100, 100)
+        // 其他点
+    ctx.lineTo(100, 200)
+    ctx.lineTo(200, 100)
+        // 设置图形的填充共颜色
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    // 设置线段的颜色
+    ctx.strokeStyle = 'purple';
+    ctx.lineWidth = '20'
+        // 可以设置起点和终点连接到一起
+    ctx.closePath();
+    ctx.stroke()
+</script>
+
+</html>
