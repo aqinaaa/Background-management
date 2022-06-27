@@ -79,6 +79,7 @@
 import * as echarts from 'echarts';
 // 下载后需要引入
 import dayjs from 'dayjs'
+import { mapState } from 'vuex';
 export default {
   data() {
     return {
@@ -111,7 +112,8 @@ export default {
       xAxis: [
         {
           type: 'category',
-          data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          // data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          data: [],
           axisTick: {
             alignWithLabel: true
           }
@@ -127,7 +129,8 @@ export default {
           name: 'Direct',
           type: 'bar',
           barWidth: '60%',
-          data: [10, 52, 200, 334, 390, 330, 220, 400, 320, 60, 60, 21],
+          // data: [10, 52, 200, 334, 390, 330, 220, 400, 320, 60, 60, 21],
+          data: [],
           color: '#7cc70a'
         }
       ]
@@ -136,8 +139,13 @@ export default {
   computed: {
     // 计算属性-标题
     title() {
+      // 根据请求到的数据修改数据即可
+
       return this.activeName == 'sale' ? '销售额' : '访问量'
-    }
+    },
+    ...mapState({
+      listState: state => state.home.list
+    })
   },
   methods: {
     // 本日
@@ -171,10 +179,21 @@ export default {
         // 只重新配置标题
         title: {
           text: this.title
-
-        }
+        },
+        xAxis: { data: this.title == '销售额' ? this.listState.orderFullYearAxis : this.listState.userFullYearAxis },
+        series: [{
+          data: this.title == '销售额' ? this.listState.userFullYear : this.listState.orderFullYear
+        }]
       })
-
+    },
+    // 监听liststate数据有了之后立马展示数据
+    listState() {
+      this.mycharts.setOption({
+        xAxis: { data: this.title == '销售额' ? this.listState.orderFullYearAxis : this.listState.userFullYearAxis },
+        series: [{
+          data: this.title == '销售额' ? this.listState.userFullYear : this.listState.orderFullYear
+        }]
+      })
     }
   }
 }

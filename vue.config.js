@@ -46,9 +46,9 @@ module.exports = {
                 pathRewrite: { "^/dev-api": "" }
             },
             // /dev-api:开发环境下使用的是这个，可以从.env.development中查看基础baseurl配置，并不是固定的就是api
-            // 开启mock数据配置
-            // after: require('./mock/mock-server.js')
-        }
+        },
+        // 开启mock数据配置
+        after: require('./mock/mock-server.js')
     },
     lintOnSave: false,
     configureWebpack: {

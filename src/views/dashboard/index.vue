@@ -12,6 +12,11 @@ import Sale from './Sale'
 import Observe from './Observe'
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      list: {}
+    }
+  },
   components: {
     card,
     Sale,
@@ -19,7 +24,10 @@ export default {
   },
   computed: {
 
-
+  },
+  mounted() {
+    // 派发仓库的action请求函数
+    this.$store.dispatch('getData');
   }
 }
 </script>
