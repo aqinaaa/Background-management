@@ -1,6 +1,6 @@
 import request from '@/utils/request'
-
-// 登录
+const api_name = '/admin/acl/user'
+    // 登录
 export function login(data) {
     return request({
         url: '/admin/acl/index/login',

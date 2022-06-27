@@ -51,7 +51,7 @@ export default {
       let result = await this.$API.attr.reqCategory1List()
       // console.log(result)
       if (result.code == 200) {
-        this.list1 = result.data
+        this.list1 = result.data.slice(0, 17);
       }
     },
     async handler1() {
@@ -68,7 +68,7 @@ export default {
       // console.log(result)
       if (result.code == 200) {
         // console.log(result.data)
-        this.list2 = result.data
+        this.list2 = result.data.slice(0, 10);
       }
     },
     async handler2() {
@@ -80,7 +80,7 @@ export default {
       let result = await this.$API.attr.reqCategory3List(category2Id);
       // console.log(result)
       if (result.code == 200) {
-        this.list3 = result.data
+        this.list3 = result.data.slice(0, 10)
       }
     },
     async handler3() {
