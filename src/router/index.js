@@ -40,12 +40,12 @@ export const constantRoutes = [
         hidden: true
     },
     // 404报错路由
-    {
-        path: '/404',
-        component: () =>
-            import ('@/views/404'),
-        hidden: true
-    },
+    // {
+    //     path: '/404',
+    //     component: () =>
+    //         import ('@/views/404'),
+    //     hidden: true
+    // },
     // 首页
     {
         path: '/',
@@ -145,6 +145,27 @@ export const asyncRoutes = [
                     import ('@/views/product/Sku'),
                 meta: { title: 'Sku管理' }
             }
+        ]
+    },
+    {
+        path: '/text',
+        component: Layout,
+        name: 'Test',
+        meta: { title: '测试管理', icon: 'el-icon-goods' },
+        children: [{
+                path: 'text1',
+                name: 'Test1',
+                component: () =>
+                    import ('@/views/text/text1'),
+                meta: { title: '测试管理1' }
+            },
+            {
+                path: 'text2',
+                name: 'Test2',
+                component: () =>
+                    import ('@/views/text/text2'),
+                meta: { title: '测试管理2' }
+            },
         ]
     },
 ];

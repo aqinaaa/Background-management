@@ -1,8 +1,8 @@
 <template>
   <div class="login-container">
     <!-- el-form组件：elementUi插件里面的一个组件，经常展示表单元素；:model动态绑定数据（：model是什么，跟v-model一样？）；:rules也是表单验证规则 -->
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on"
-      label-position="left">
+    <!-- :rules="loginRules" -->
+    <el-form ref="loginForm" :model="loginForm" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
         <h3 class="title">登录</h3>
